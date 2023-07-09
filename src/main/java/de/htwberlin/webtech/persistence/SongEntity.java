@@ -6,17 +6,29 @@ public class SongEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
     private long id;
-    private String titel;
+
+    @Column(name = "title", nullable = false)
+    private String title;
+
+    @Column(name = "author", nullable = false)
+    private String author;
+
+    @Column(name = "releaseYear")
     private long releaseYear;
-    private String autor;
+
+    @Column(name = "songLink", nullable = false)
     private String songLink;
+
+
+    @Column(name = "isFavorite", nullable = false)
     private boolean isFavorite;
 
-    public SongEntity( String titel, long releaseYear, String autor, String songLink, boolean isFavorite) {
-        this.titel = titel;
+    public SongEntity(String title, String author, long releaseYear, String songLink, boolean isFavorite) {
+        this.title = title;
+        this.author = author;
         this.releaseYear = releaseYear;
-        this.autor = autor;
         this.songLink = songLink;
         this.isFavorite = isFavorite;
     }
@@ -32,12 +44,20 @@ public class SongEntity {
         this.id = id;
     }
 
-    public String getTitel() {
-        return titel;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setTitel(String titel) {
-        this.titel = titel;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public long getReleaseYear() {
@@ -48,13 +68,6 @@ public class SongEntity {
         this.releaseYear = releaseYear;
     }
 
-    public String getAutor() {
-        return autor;
-    }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
 
     public String getSongLink() {
         return songLink;
@@ -64,11 +77,11 @@ public class SongEntity {
         this.songLink = songLink;
     }
 
-    public boolean isFavorite() {
+    public boolean getIsFavorie() {
         return isFavorite;
     }
 
-    public void setFavorite(boolean favorite) {
-        isFavorite = favorite;
+    public void setIsFavorite(boolean isFavorite) {
+        this.isFavorite = isFavorite;
     }
 }
